@@ -1,0 +1,17 @@
+system:
+  name: "MakerSpace Projektmanagement"
+  language: "de"
+  timezone: "Europe/Berlin"
+projects:
+  allow_new_requests: true
+  disabled_message: "Derzeit können keine neuen Projekte beantragt werden."
+resources:
+  max_booking_days_advance: 30
+  require_approval: true
+chat:
+  max_file_size_mb: 10
+  allowed_extensions: ["pdf", "jpg", "jpeg", "png", "gif", "zip"]
+email:
+  enabled: true
+  sender_name: "MakerSpace Team"
+  sender_email: "makerspace@schule.de"
