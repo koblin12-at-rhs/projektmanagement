@@ -1,0 +1,14 @@
+{
+  "button": {
+    "new_project": "Neues Projekt",
+    "save": "Speichern"
+  },
+  "admin": {
+    "system_settings": "Systemeinstellungen",
+    "text_management": "Textverwaltung"
+  },
+  "message": {
+    "settings_saved": "Einstellungen gespeichert",
+    "error_occurred": "Es ist ein Fehler aufgetreten"
+  }
+}
