@@ -18,6 +18,7 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 - `-SkipPostgres`: Überspringt PostgreSQL-Installation und DB-Erstellung.
 - `-PostgresPassword "<passwort>"`: Passwort für DB-User `makerspace`.
 - `-ProjectRoot "C:\Pfad\zum\Repo"`: Alternativer Projektpfad.
+- `-NoAutoStart`: Verhindert den automatischen Start von Backend und Frontend nach der Installation.
 
 Beispiel:
 
@@ -31,6 +32,7 @@ Beispiel:
 3. Führt `npm install` im Frontend aus.
 4. Legt optional DB und Rolle `makerspace` an.
 5. Seedet Standard-Settings, Text-Templates und E-Mail-Templates.
+6. Startet automatisch Backend und Frontend in zwei neuen PowerShell-Fenstern (außer `-NoAutoStart`).
 
 ## Start nach Installation
 - Backend:

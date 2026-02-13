@@ -2,7 +2,8 @@ Param(
     [switch]$SkipWinget,
     [switch]$SkipPostgres,
     [string]$PostgresPassword = "makerspace",
-    [string]$ProjectRoot = "$PSScriptRoot\.."
+    [string]$ProjectRoot = "$PSScriptRoot\..",
+    [switch]$NoAutoStart
 )
 
 $ErrorActionPreference = "Stop"
@@ -120,5 +121,21 @@ Remove-Item $seedFile -ErrorAction SilentlyContinue
 Write-Step "Beispiel-Startkommandos"
 Write-Host "Backend starten: .venv\Scripts\python.exe backend\run.py"
 Write-Host "Frontend starten: cd frontend; npm run dev"
+
+if (-not $NoAutoStart) {
+    Write-Step "Starte Backend- und Frontend-Server automatisch"
+
+    $backendCmd = "Set-Location $ResolvedRoot; & .venv\Scripts\python.exe backend\run.py"
+    Start-Process powershell -ArgumentList "-NoExit", "-Command", $backendCmd -WindowStyle Normal
+
+    $frontendCmd = "Set-Location $ResolvedRoot\frontend; npm run dev"
+    Start-Process powershell -ArgumentList "-NoExit", "-Command", $frontendCmd -WindowStyle Normal
+
+    Write-Host "Server wurden gestartet (zwei neue PowerShell-Fenster)." -ForegroundColor Green
+    Write-Host "Frontend URL (standard): http://localhost:5173" -ForegroundColor Green
+    Write-Host "Backend URL (standard): http://localhost:5000" -ForegroundColor Green
+} else {
+    Write-Host "Auto-Start übersprungen (Parameter -NoAutoStart)." -ForegroundColor Yellow
+}
 
 Write-Host "`nInstallation abgeschlossen." -ForegroundColor Green

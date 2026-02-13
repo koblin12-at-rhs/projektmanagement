@@ -25,3 +25,4 @@ Siehe `docs/CONFIGURATION_GUIDE.md` und `config/system_defaults.yaml`.
 
 ## Windows-Installation
 PowerShell-Installer: `deployment/install-windows.ps1` (Details in `docs/INSTALLATION_WINDOWS.md`).
+Das Skript startet nach erfolgreicher Installation automatisch Backend und Frontend (abschaltbar mit `-NoAutoStart`).
